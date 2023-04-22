@@ -13,12 +13,20 @@ return require('packer').startup(function(use)
   requires = { {'nvim-lua/plenary.nvim'} }
 }
 
-  use({ 
-	  'rose-pine/neovim', 
-	  as = 'rose-pine',
-	  config = function()
-  		  vim.cmd('colorscheme rose-pine')
-	  end
+  -- use({ 
+	 --  'rose-pine/neovim', 
+	 --  as = 'rose-pine',
+	 --  config = function()
+  -- 		  vim.cmd('colorscheme rose-pine')
+	 --  end
+  -- })
+  
+  use ({
+       "catppuccin/nvim", 
+       as = "catppuccin", 
+       config = function()
+        vim.cmd('colorscheme catppuccin')
+       end
   })
   
   use ('nvim-tree/nvim-web-devicons')
@@ -36,8 +44,19 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  use('numToStr/prettierrc.nvim')
   use ('NvChad/nvim-colorizer.lua')
+  use('neovim/nvim-lspconfig')
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+  use("folke/zen-mode.nvim")
+
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
   use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v1.x',
